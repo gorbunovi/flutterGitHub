@@ -1,3 +1,2 @@
 
-class HealthService{}
-class DumnService{}
+abstract class HealthService{}
