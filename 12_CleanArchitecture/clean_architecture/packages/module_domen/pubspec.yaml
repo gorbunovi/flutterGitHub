@@ -11,11 +11,12 @@ dependencies:
     sdk: flutter
   module_data:
     path: ../module_data
+  get_it: ^7.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  get_it: ^7.2.0
+
 
 
 
