@@ -41,10 +41,15 @@ class _MyHomePageState extends State<MyHomePage> {
               const Text(
                 'You have pushed the button this many times:',
               ),
-                Text(
-                    '${_bloc.count.counter}',
-                    style: Theme.of(context).textTheme.headline4,
-              ),
+                StreamBuilder(
+                  stream: _bloc.outputStateStream,
+                  builder: (context, snapshot) {
+                    return Text(
+                        '${snapshot.data??'0'}',
+                        style: Theme.of(context).textTheme.headline4,
+              );
+                  }
+                ),
             ],
           ),
         ),
