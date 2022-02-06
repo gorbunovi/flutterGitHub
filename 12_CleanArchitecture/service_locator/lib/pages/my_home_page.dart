@@ -1,7 +1,9 @@
 
+import 'dart:developer';
+
 import 'package:buisnece_packege/buisnece_packege.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -12,25 +14,20 @@ class MyHomePage extends StatefulWidget {
 
 
 class _MyHomePageState extends State<MyHomePage> {
-  late final CounterBloc _bloc;
+  late final CounterBloc _bloc = BlocProvider.of<CounterBloc>(context);
+  // @override
+  // void initState() {
+  //   _bloc = BlocFactory.instance.get<CounterBloc>();
+  // }
 
-
-  @override
-  void initState() {
-    _bloc = BlocFactory.instance.get<CounterBloc>();
-  }
-
-
-  @override
-  void dispose() {
-    _bloc.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _bloc.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
-    return Provider<CounterBloc>(
-      create: (_) => _bloc,
-      child: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
         ),
@@ -41,15 +38,14 @@ class _MyHomePageState extends State<MyHomePage> {
               const Text(
                 'You have pushed the button this many times:',
               ),
-                StreamBuilder(
-                  stream: _bloc.outputStateStream,
-                  builder: (context, snapshot) {
-                    return Text(
-                        '${snapshot.data??'0'}',
-                        style: Theme.of(context).textTheme.headline4,
-              );
-                  }
-                ),
+              BlocBuilder(
+                builder: (context, state) {
+                  return Text(
+                  '${state ??'0'}',
+                  style: Theme.of(context).textTheme.headline4,
+                  );
+                }
+              ),
             ],
           ),
         ),
@@ -59,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             FloatingActionButton(
               onPressed: () {
-                _bloc.inputEventSink.add(CounterEvent.event_increment);
+                _bloc.add(CounterIncrement());
               },
               tooltip: 'Increment',
               child: const Icon(Icons.add),
@@ -67,15 +63,13 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(width: 20,),
             FloatingActionButton(
               onPressed: (){
-                _bloc.inputEventSink.add(CounterEvent.event_dicrement);
+                _bloc.add(CounterDecrement());
               },
               tooltip: 'Increment',
               child: const Icon(Icons.minimize),
             ),
           ],
         )
-
-      ),
     );
   }
 }

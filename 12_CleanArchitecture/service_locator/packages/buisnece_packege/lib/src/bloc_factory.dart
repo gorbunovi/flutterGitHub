@@ -12,9 +12,7 @@ class BlocFactory {
   void initialize() {
     ServiceProvider.instance.initialize();
     _getIt.registerFactory<CounterBloc>(
-      () => CounterBloc(
-        count: ServiceProvider.instance.get<Counter>(),
-      ),
+      () => CounterBloc(),
     );
   }
 }
