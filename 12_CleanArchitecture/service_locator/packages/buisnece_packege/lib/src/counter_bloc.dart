@@ -8,16 +8,18 @@ abstract class CounterEvent {}
 class CounterIncrement extends CounterEvent {}
 class CounterDecrement extends CounterEvent {}
 
-class CounterBloc extends Bloc<CounterEvent, Counter>{
+class CounterBloc extends Bloc<CounterEvent, int>{
+  final Counter counter;
 
-  CounterBloc() : super(ServiceProvider.instance.get<Counter>()){
+  CounterBloc({required this.counter}) : super(0){
+
     on<CounterIncrement>((event, emit){
-      state.updateCounter(state.counter + 1);
-      emit(state);
+      counter.updateCounter(state + 1);
+      emit(counter.counter);
     });
     on<CounterDecrement>((event, emit){
-      state.updateCounter(state.counter + 1);
-      emit(state);
+      counter.updateCounter(state + 1);
+      emit(counter.counter);
     });
   }
 }
