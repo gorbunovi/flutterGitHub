@@ -1,4 +1,3 @@
-
 import 'package:buisnece_packege/buisnece_packege.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,8 +9,8 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-
 class _MyHomePageState extends State<MyHomePage> {
+  ///
   late final CounterBloc _bloc = BlocProvider.of<CounterBloc>(context);
   // @override
   // void initState() {
@@ -36,14 +35,13 @@ class _MyHomePageState extends State<MyHomePage> {
               const Text(
                 'You have pushed the button this many times:',
               ),
-              BlocBuilder(
-                builder: (context, state) {
-                  return Text(
-                  '${state ??'0'}',
+              BlocBuilder<CounterBloc, int>(builder: (context, state) {
+                if (state == null) return const SizedBox.shrink();
+                return Text(
+                  state.toString(),
                   style: Theme.of(context).textTheme.headline4,
-                  );
-                }
-              ),
+                );
+              }),
             ],
           ),
         ),
@@ -58,16 +56,17 @@ class _MyHomePageState extends State<MyHomePage> {
               tooltip: 'Increment',
               child: const Icon(Icons.add),
             ),
-            SizedBox(width: 20,),
+            SizedBox(
+              width: 20,
+            ),
             FloatingActionButton(
-              onPressed: (){
+              onPressed: () {
                 _bloc.add(CounterDecrement());
               },
               tooltip: 'Increment',
               child: const Icon(Icons.minimize),
             ),
           ],
-        )
-    );
+        ));
   }
 }
