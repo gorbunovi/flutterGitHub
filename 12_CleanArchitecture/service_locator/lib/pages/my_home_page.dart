@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -12,15 +13,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   ///
   late final CounterBloc _bloc = BlocProvider.of<CounterBloc>(context);
-  // @override
-  // void initState() {
-  //   _bloc = BlocFactory.instance.get<CounterBloc>();
-  // }
-
-  // @override
-  // void dispose() {
-  //   _bloc.dispose();
-  // }
 
   @override
   Widget build(BuildContext context) {

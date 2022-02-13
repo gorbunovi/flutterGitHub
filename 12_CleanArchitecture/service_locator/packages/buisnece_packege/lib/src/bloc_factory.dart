@@ -13,7 +13,7 @@ class BlocFactory {
     ServiceProvider.instance.initialize();
     _getIt.registerFactory<CounterBloc>(
       () => CounterBloc(
-        counter: ServiceProvider.instance.get<Counter>(),
+        counter: ServiceProvider.instance.get<DummyCounterService>(),
       ),
     );
   }
