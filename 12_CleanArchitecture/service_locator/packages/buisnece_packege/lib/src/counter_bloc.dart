@@ -15,11 +15,11 @@ class CounterBloc extends Bloc<CounterEvent, int>{
 
     on<CounterIncrement>((event, emit){
       counter.incrementCounter();
-      emit(counter.getCounter());
+      emit(state + 1);
     });
     on<CounterDecrement>((event, emit){
       counter.decrementCounter();
-      emit(counter.getCounter());
+      emit(state - 1);
     });
   }
 }
