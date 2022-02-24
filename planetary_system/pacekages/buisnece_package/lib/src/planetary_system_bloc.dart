@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 abstract class PlanetEvent {}
 class GetPlanets extends PlanetEvent {}
+class AddNewPlanet extends PlanetEvent {}
 
 class PlanetarySystemBloc extends Bloc<PlanetEvent, PlanetarySystem>{
   final PlanetarySystem planetarySystem;
