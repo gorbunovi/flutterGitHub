@@ -6,7 +6,14 @@ class AddNewPlanet extends PlanetEvent {}
 
 class PlanetBloc extends Bloc<PlanetEvent, Planet>{
   final Planet planet;
-  PlanetBloc({required this.planet}) : super(ServiceProvider.instance.get<Planet>());
+  final PlanetarySystem planetarySystem;
+  PlanetBloc({required this.planet, required this.planetarySystem}) : super(ServiceProvider.instance.get<Planet>()){
+    on<AddNewPlanet>((event, emit){
+      planetarySystem.addPlanet(state);
+    });
+  }
+
+
 
 }
 

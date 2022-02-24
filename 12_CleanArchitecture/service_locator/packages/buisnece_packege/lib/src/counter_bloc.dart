@@ -13,13 +13,13 @@ class CounterBloc extends Bloc<CounterEvent, int>{
 
   CounterBloc({required this.counter}) : super(0){
 
-    on<CounterIncrement>((event, emit){
-      counter.incrementCounter();
-      emit(state + 1);
+    on<CounterIncrement>((event, emit) async{
+      final resault = await counter.incrementCounter();
+      emit(resault.counter);
     });
-    on<CounterDecrement>((event, emit){
-      counter.decrementCounter();
-      emit(state - 1);
+    on<CounterDecrement>((event, emit)async{
+      final resault = await counter.decrementCounter();
+      emit(resault.counter);
     });
   }
 }

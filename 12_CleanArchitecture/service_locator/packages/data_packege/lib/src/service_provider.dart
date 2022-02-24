@@ -13,6 +13,6 @@ class ServiceProvider{
   static final instance = ServiceProvider();
 
   void initialize(){
-    _getIt.registerLazySingleton<CounterService>(() => DummyCounterService());
+    _getIt.registerSingleton<CounterService>(DummyCounterService());
   }
 }

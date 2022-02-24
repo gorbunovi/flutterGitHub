@@ -16,7 +16,7 @@ dependencies:
   buisnece_package:
     path: pacekages/buisnece_package
   flutter_colorpicker: ^1.0.3
-
+  flutter_bloc: ^8.0.1
   cupertino_icons: ^1.0.2
 
 dev_dependencies:

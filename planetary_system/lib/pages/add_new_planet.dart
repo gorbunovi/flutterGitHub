@@ -4,7 +4,6 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 class AddNewPlanet extends StatefulWidget {
   static const routeName = '/AddNewPlanet';
-
   const AddNewPlanet({Key? key}) : super(key: key);
 
   @override
