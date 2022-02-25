@@ -106,6 +106,7 @@ class _AddNewPlanetState extends State<AddNewPlanet> {
   }
   void _submitForm(){
     if(_formKey.currentState!.validate()){
+      Planet planet = Planet();
     }
   }
 
