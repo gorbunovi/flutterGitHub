@@ -7,9 +7,9 @@ part 'planetary_system.g.dart';
 
 @JsonSerializable()
 class PlanetarySystem{
-  late final List<Planet>? planets;
+  late final List<Planet> planets;
 
-  PlanetarySystem({required this.planets});
+  PlanetarySystem();
 
   void addPlanet(Planet planet) => planets;
 

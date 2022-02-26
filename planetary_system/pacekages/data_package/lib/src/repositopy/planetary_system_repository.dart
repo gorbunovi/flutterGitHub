@@ -7,25 +7,30 @@ import 'package:shared_preferences/shared_preferences.dart';
 class PlanetarySystemRepository extends PlanetarySystemService{
 
   final PlanetarySystem planetarySystem = PlanetarySystem();
-  SharedPreferences? _sharedPreferences;
+  late SharedPreferences _sharedPreferences;
 
 
 
   @override
   Future<List<Planet>> AddNewPlanet(Planet planet) async{
     planetarySystem.addPlanet(planet);
-    String json = JsonEncoder(planetarySystem);
-    List<Planet> planets = planetarySystem.planets;
+    SavePlanetaryStstem(planetarySystem);
+    List<Planet>? planets = planetarySystem.planets;
     return planets;
   }
 
   @override
   Future<PlanetarySystem> SavePlanetaryStstem(PlanetarySystem planetarySystem) async{
-    val json = JsonEncoder(planetarySystem);
+    final String json = jsonEncode(planetarySystem);
+    _sharedPreferences.setString('system', json);
+    return planetarySystem;
   }
 
   @override
   Future<List<Planet>> getPlanets() async{
+    String? system = _sharedPreferences.getString('system');
+    Map m = jsonDecode(system,);
+    final planetarySystem = system ?? PlanetarySystem.fromJson(m);
     List<Planet> planets = planetarySystem.planets;
     return planets;
   }

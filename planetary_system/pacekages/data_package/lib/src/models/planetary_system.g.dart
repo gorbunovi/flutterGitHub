@@ -7,11 +7,10 @@ part of 'planetary_system.dart';
 // **************************************************************************
 
 PlanetarySystem _$PlanetarySystemFromJson(Map<String, dynamic> json) =>
-    PlanetarySystem(
-      planets: (json['planets'] as List<dynamic>?)
-          ?.map((e) => Planet.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
+    PlanetarySystem()
+      ..planets = (json['planets'] as List<dynamic>)
+          .map((e) => Planet.fromJson(e as Map<String, dynamic>))
+          .toList();
 
 Map<String, dynamic> _$PlanetarySystemToJson(PlanetarySystem instance) =>
     <String, dynamic>{
