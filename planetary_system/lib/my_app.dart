@@ -1,4 +1,6 @@
+import 'package:buisnece_package/buisnece_package.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:planetary_system/pages/add_new_planet.dart';
 import 'package:planetary_system/pages/home_page.dart';
 
@@ -16,13 +18,19 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
-          case HomePage.routeName:
+          case PlanetarySystemPage.routeName:
             return MaterialPageRoute(builder: (BuildContext context) {
-              return const HomePage();
+              return BlocProvider(
+                create: (context) => BlocFactory.instance.get<PlanetarySystemBloc>(),
+                child: PlanetarySystemPage(),
+              );
             });
-          case AddNewPlanet.routeName:
+          case '/AddNewPlanet':
             return MaterialPageRoute(builder: (BuildContext context) {
-              return const AddNewPlanet();
+              return BlocProvider(
+                create: (context) => BlocFactory.instance.get<PlanetBloc>(),
+                child: AddNewPlanetPage(),
+              );
             });
         }
       },

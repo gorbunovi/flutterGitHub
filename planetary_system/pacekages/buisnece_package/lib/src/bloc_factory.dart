@@ -12,12 +12,12 @@ class BlocFactory {
 
   void initialize() {
     ServiceProvider.instance.initialize();
-    // _getIt.registerFactory<PlanetBloc>(
-    //   () => PlanetBloc(
-    //     planetarySystem: ServiceProvider.instance.get<PlanetarySystem>(),
-    //     planet: ServiceProvider.instance.get<Planet>(),
-    //   ),
-    // );
+    _getIt.registerFactory<PlanetBloc>(
+      () => PlanetBloc(
+        planetarySystem: ServiceProvider.instance.get<PlanetarySystem>(),
+        planet: ServiceProvider.instance.get<Planet>(),
+      ),
+    );
     _getIt.registerFactory<PlanetarySystemBloc>(
       () => PlanetarySystemBloc(
         planetarySystem: ServiceProvider.instance.get<PlanetarySystem>(),

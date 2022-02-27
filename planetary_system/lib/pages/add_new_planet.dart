@@ -1,16 +1,20 @@
+import 'package:buisnece_package/buisnece_package.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
-class AddNewPlanet extends StatefulWidget {
+class AddNewPlanetPage extends StatefulWidget {
   static const routeName = '/AddNewPlanet';
-  const AddNewPlanet({Key? key}) : super(key: key);
+  const AddNewPlanetPage({Key? key}) : super(key: key);
 
   @override
-  _AddNewPlanetState createState() => _AddNewPlanetState();
+  _AddNewPlanetPageState createState() => _AddNewPlanetPageState();
 }
 
-class _AddNewPlanetState extends State<AddNewPlanet> {
+class _AddNewPlanetPageState extends State<AddNewPlanetPage> {
+
+  late final PlanetBloc _planetBloc = BlocProvider.of<PlanetBloc>(context);
 
   final _formKey = GlobalKey<FormState>();
 
@@ -106,7 +110,7 @@ class _AddNewPlanetState extends State<AddNewPlanet> {
   }
   void _submitForm(){
     if(_formKey.currentState!.validate()){
-      Planet planet = Planet();
+      _planetBloc.add(AddNewPlanetPage());
     }
   }
 

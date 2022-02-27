@@ -9,7 +9,7 @@ class ServiceProvider{
   static final instance = ServiceProvider();
 
   void initialize(){
-    _getIt.registerLazySingleton<PlanetarySystem>(() => PlanetarySystem());
+    _getIt.registerLazySingleton<PlanetarySystem>(() => PlanetarySystem([]));
     _getIt.registerLazySingleton<Planet>(() => Planet());
   }
 }

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class PlanetarySystemPage extends StatefulWidget {
   static const routeName = '/';
-  const HomePage({Key? key}) : super(key: key);
+  const PlanetarySystemPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<PlanetarySystemPage> createState() => _PlanetarySystemPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _PlanetarySystemPageState extends State<PlanetarySystemPage> {
   int _counter = 0;
 
   void _incrementCounter() {
