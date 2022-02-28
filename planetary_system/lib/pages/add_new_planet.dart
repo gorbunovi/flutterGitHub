@@ -108,9 +108,10 @@ class _AddNewPlanetPageState extends State<AddNewPlanetPage> {
       ),
     );
   }
+
   void _submitForm(){
     if(_formKey.currentState!.validate()){
-      _planetBloc.add(AddNewPlanetPage());
+      _planetBloc.add(AddNewPlanet());
     }
   }
 

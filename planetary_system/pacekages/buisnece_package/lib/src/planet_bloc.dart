@@ -1,8 +1,9 @@
 import 'package:data_package/data_package.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-abstract class PlanetEvent {}
-class AddNewPlanet extends PlanetEvent {}
+import 'event_bloc.dart';
+
+
 
 class PlanetBloc extends Bloc<PlanetEvent, Planet>{
   final Planet planet;

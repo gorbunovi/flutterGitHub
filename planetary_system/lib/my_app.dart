@@ -2,7 +2,7 @@ import 'package:buisnece_package/buisnece_package.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:planetary_system/pages/add_new_planet.dart';
-import 'package:planetary_system/pages/home_page.dart';
+import 'package:planetary_system/pages/planetary_system_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
