@@ -27,10 +27,7 @@ class MyApp extends StatelessWidget {
             });
           case '/AddNewPlanet':
             return MaterialPageRoute(builder: (BuildContext context) {
-              return BlocProvider(
-                create: (context) => BlocFactory.instance.get<PlanetBloc>(),
-                child: AddNewPlanetPage(),
-              );
+              return AddNewPlanetPage();
             });
         }
       },

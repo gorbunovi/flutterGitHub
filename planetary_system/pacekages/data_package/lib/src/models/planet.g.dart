@@ -7,9 +7,9 @@ part of 'planet.dart';
 // **************************************************************************
 
 Planet _$PlanetFromJson(Map<String, dynamic> json) => Planet(
-      radius: json['radius'],
-      speed: json['speed'],
-      distance: json['distance'],
+      radius: (json['radius'] as num?)?.toDouble(),
+      speed: (json['speed'] as num?)?.toDouble(),
+      distance: (json['distance'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$PlanetToJson(Planet instance) => <String, dynamic>{

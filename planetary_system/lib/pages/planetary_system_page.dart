@@ -22,18 +22,27 @@ class _PlanetarySystemPageState extends State<PlanetarySystemPage> {
       // appBar: AppBar(
       //
       // ),
-      body: Stack(
-        children: [
-          Center(
-            
-          ),
-        ],
+      body: BlocBuilder(
+        builder: (context, planetarySystem) {
+          return Stack(
+            children: [
+              Center(
+                child: Text('{$planetarySystem}'),
+              ),
+            ],
+          );
+        }
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pushNamed(context, '/AddNewPlanet'),
+        onPressed: () async{
+          final PlanetEvent resault = await  Navigator.pushNamed(context, '/AddNewPlanet') as PlanetEvent;
+          if(resault != null) _systemBloc.add(resault) ;
+        },
         tooltip: 'Add new planet',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+
+

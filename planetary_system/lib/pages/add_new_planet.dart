@@ -14,8 +14,6 @@ class AddNewPlanetPage extends StatefulWidget {
 
 class _AddNewPlanetPageState extends State<AddNewPlanetPage> {
 
-  late final PlanetBloc _planetBloc = BlocProvider.of<PlanetBloc>(context);
-
   final _formKey = GlobalKey<FormState>();
 
   Color color = Colors.amber;
@@ -111,7 +109,7 @@ class _AddNewPlanetPageState extends State<AddNewPlanetPage> {
 
   void _submitForm(){
     if(_formKey.currentState!.validate()){
-      _planetBloc.add(AddNewPlanet(
+      Navigator.of(context).pop(AddNewPlanet(
         radius: double.parse(_radius.text),
         distance: double.parse(_distance.text),
         speed: double.parse(_speed.text),

@@ -10,7 +10,13 @@ class PlanetarySystemBloc extends Bloc<PlanetEvent, PlanetarySystem>{
   PlanetarySystemBloc({required this.planetarySystem}) : super(ServiceProvider.instance.get<PlanetarySystem>()){
 
     on<GetPlanets>((event, emit){
-      emit(state);
+      emit(planetarySystem);
     });
+
+    on<AddNewPlanet>((event, emit){
+      planetarySystem.addPlanet(Planet(speed: event.speed, distance: event.distance, radius: event.radius));
+      emit(planetarySystem);
+    });
+
   }
 }

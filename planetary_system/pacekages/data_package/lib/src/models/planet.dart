@@ -5,11 +5,11 @@ part 'planet.g.dart';
 
 @JsonSerializable()
 class Planet{
-  final radius;
-  final speed;
-  final distance;
+  final double? radius;
+  final double? speed;
+  final double? distance;
 
-  Planet({this.radius, this.speed, this.distance});
+  Planet({ this.radius, this.speed, this.distance});
 
   factory Planet.fromJson(Map<String, dynamic> json) => _$PlanetFromJson(json);
 
