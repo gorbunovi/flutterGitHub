@@ -16,23 +16,18 @@ class _PlanetarySystemPageState extends State<PlanetarySystemPage> {
 
   @override
   Widget build(BuildContext context) {
+    double _height = MediaQuery.of(context).size.height;
+    double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       // appBar: AppBar(
       //
       // ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '111',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+      body: Stack(
+        children: [
+          Center(
+            
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){},
