@@ -30,7 +30,7 @@ class _PlanetarySystemPageState extends State<PlanetarySystemPage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: () => Navigator.pushNamed(context, '/AddNewPlanet'),
         tooltip: 'Add new planet',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
