@@ -111,7 +111,11 @@ class _AddNewPlanetPageState extends State<AddNewPlanetPage> {
 
   void _submitForm(){
     if(_formKey.currentState!.validate()){
-      _planetBloc.add(AddNewPlanet());
+      _planetBloc.add(AddNewPlanet(
+        radius: double.parse(_radius.text),
+        distance: double.parse(_distance.text),
+        speed: double.parse(_speed.text),
+      ));
     }
   }
 
