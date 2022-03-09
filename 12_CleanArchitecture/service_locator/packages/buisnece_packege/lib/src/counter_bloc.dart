@@ -11,7 +11,7 @@ class CounterDecrement extends CounterEvent {}
 class CounterBloc extends Bloc<CounterEvent, int>{
   final DummyCounterService counter;
 
-  CounterBloc({required this.counter}) : super(0){
+  CounterBloc({required this.counter}) : super(0) {
 
     on<CounterIncrement>((event, emit) async{
       final resault = await counter.incrementCounter();

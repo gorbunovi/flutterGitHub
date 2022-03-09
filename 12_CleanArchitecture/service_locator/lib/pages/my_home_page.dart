@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -12,13 +11,22 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   ///
-  late final CounterBloc _bloc = BlocProvider.of<CounterBloc>(context);
+  late CounterBloc _bloc = BlocProvider.of<CounterBloc>(context);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          automaticallyImplyLeading: false,
+          title: const Text('Тестовое задание'),
+          actions: [
+            IconButton(
+              onPressed: () {
+                _bloc = Navigator.of(context).pushNamed('/SecondPage') as CounterBloc;
+              },
+              icon: const Icon(Icons.navigate_next),
+            ),
+          ],
         ),
         body: Center(
           child: Column(
