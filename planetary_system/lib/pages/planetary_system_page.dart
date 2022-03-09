@@ -22,12 +22,12 @@ class _PlanetarySystemPageState extends State<PlanetarySystemPage> {
       // appBar: AppBar(
       //
       // ),
-      body: BlocBuilder(
+      body: BlocBuilder<PlanetarySystemBloc, PlanetarySystemEntity>(
         builder: (context, planetarySystem) {
           return Stack(
-            children: [
+            children: const [
               Center(
-                child: Text('{$planetarySystem}'),
+                // child: Text('{$planetarySystem}'),
               ),
             ],
           );
@@ -40,7 +40,7 @@ class _PlanetarySystemPageState extends State<PlanetarySystemPage> {
         },
         tooltip: 'Add new planet',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }

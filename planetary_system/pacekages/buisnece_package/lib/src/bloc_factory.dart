@@ -1,5 +1,6 @@
 
 import 'package:buisnece_package/src/planetary_system_bloc.dart';
+import 'package:buisnece_package/src/planetary_system_entity.dart';
 import 'package:data_package/data_package.dart';
 import 'package:get_it/get_it.dart';
 
@@ -20,7 +21,7 @@ class BlocFactory {
     // );
     _getIt.registerFactory<PlanetarySystemBloc>(
       () => PlanetarySystemBloc(
-        planetarySystem: ServiceProvider.instance.get<PlanetarySystem>(),
+        planetarySystem: PlanetarySystemEntity([]),
       ),
     );
   }
