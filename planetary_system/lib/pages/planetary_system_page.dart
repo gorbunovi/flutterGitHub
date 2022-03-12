@@ -23,11 +23,11 @@ class _PlanetarySystemPageState extends State<PlanetarySystemPage> {
       //
       // ),
       body: BlocBuilder<PlanetarySystemBloc, PlanetarySystemEntity>(
-        builder: (context, planetarySystem) {
+        builder: (context, PlanetarySystemEntity planetarySystem) {
           return Stack(
-            children: const [
+            children: [
               Center(
-                // child: Text('{$planetarySystem}'),
+                child: Text(planetarySystem.planets.length.toString()),
               ),
             ],
           );
@@ -36,6 +36,7 @@ class _PlanetarySystemPageState extends State<PlanetarySystemPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () async{
           final PlanetEvent resault = await  Navigator.pushNamed(context, '/AddNewPlanet') as PlanetEvent;
+          print (resault);
           if(resault != null) _systemBloc.add(resault) ;
         },
         tooltip: 'Add new planet',

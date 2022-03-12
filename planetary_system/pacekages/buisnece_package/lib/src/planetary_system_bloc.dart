@@ -8,13 +8,14 @@ import 'event_bloc.dart';
 
 class PlanetarySystemBloc extends Bloc<PlanetEvent, PlanetarySystemEntity>{
   final PlanetarySystemEntity planetarySystem;
-  PlanetarySystemBloc({required this.planetarySystem}) : super(ServiceProvider.instance.get<PlanetarySystemEntity>()){
+  PlanetarySystemBloc({required this.planetarySystem}) : super(PlanetarySystemEntity([])){
 
     on<GetPlanets>((event, emit){
       emit(planetarySystem);
     });
 
     on<AddNewPlanet>((event, emit){
+      print("add => $event");
       planetarySystem.addPlanet(Planet(speed: event.speed, distance: event.distance, radius: event.radius));
       emit(planetarySystem);
     });
