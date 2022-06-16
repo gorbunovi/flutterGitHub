@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 abstract class CounterEvent {}
 class CounterIncrement extends CounterEvent {}
 class CounterDecrement extends CounterEvent {}
+class CounterGet extends CounterEvent {}
 
 class CounterBloc extends Bloc<CounterEvent, int>{
   final DummyCounterService counter;
@@ -19,6 +20,10 @@ class CounterBloc extends Bloc<CounterEvent, int>{
     });
     on<CounterDecrement>((event, emit)async{
       final resault = await counter.decrementCounter();
+      emit(resault.counter);
+    });
+    on<CounterGet>((event, emit)async{
+      final resault = await counter.getCounter();
       emit(resault.counter);
     });
   }

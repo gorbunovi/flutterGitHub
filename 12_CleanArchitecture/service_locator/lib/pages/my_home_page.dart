@@ -21,8 +21,9 @@ class _MyHomePageState extends State<MyHomePage> {
           title: const Text('Тестовое задание'),
           actions: [
             IconButton(
-              onPressed: () {
-                _bloc = Navigator.of(context).pushNamed('/SecondPage') as CounterBloc;
+              onPressed: () async{
+                await Navigator.of(context).pushNamed('/SecondPage') as CounterBloc;
+                _bloc.add(CounterGet());
               },
               icon: const Icon(Icons.navigate_next),
             ),
