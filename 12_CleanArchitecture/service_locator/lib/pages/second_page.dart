@@ -8,12 +8,7 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     late final CounterBloc _bloc = BlocProvider.of<CounterBloc>(context);
-    return WillPopScope(
-      onWillPop: () async{
-        Navigator.of(context).pop(_bloc);
-        return false;
-      },
-      child: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           centerTitle: true,
           leading: IconButton(
@@ -51,7 +46,6 @@ class SecondPage extends StatelessWidget {
             ),
           ),
         ),
-      ),
     );
   }
 }

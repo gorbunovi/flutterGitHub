@@ -12,26 +12,17 @@ part of 'counter_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-/// @nodoc
-class _$CounterDataTearOff {
-  const _$CounterDataTearOff();
-
-  _CounterData call({required int counter}) {
-    return _CounterData(
-      counter: counter,
-    );
-  }
+CounterData _$CounterDataFromJson(Map<String, dynamic> json) {
+  return _CounterData.fromJson(json);
 }
-
-/// @nodoc
-const $CounterData = _$CounterDataTearOff();
 
 /// @nodoc
 mixin _$CounterData {
   int get counter => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CounterDataCopyWith<CounterData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -67,30 +58,30 @@ class _$CounterDataCopyWithImpl<$Res> implements $CounterDataCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$CounterDataCopyWith<$Res>
+abstract class _$$_CounterDataCopyWith<$Res>
     implements $CounterDataCopyWith<$Res> {
-  factory _$CounterDataCopyWith(
-          _CounterData value, $Res Function(_CounterData) then) =
-      __$CounterDataCopyWithImpl<$Res>;
+  factory _$$_CounterDataCopyWith(
+          _$_CounterData value, $Res Function(_$_CounterData) then) =
+      __$$_CounterDataCopyWithImpl<$Res>;
   @override
   $Res call({int counter});
 }
 
 /// @nodoc
-class __$CounterDataCopyWithImpl<$Res> extends _$CounterDataCopyWithImpl<$Res>
-    implements _$CounterDataCopyWith<$Res> {
-  __$CounterDataCopyWithImpl(
-      _CounterData _value, $Res Function(_CounterData) _then)
-      : super(_value, (v) => _then(v as _CounterData));
+class __$$_CounterDataCopyWithImpl<$Res> extends _$CounterDataCopyWithImpl<$Res>
+    implements _$$_CounterDataCopyWith<$Res> {
+  __$$_CounterDataCopyWithImpl(
+      _$_CounterData _value, $Res Function(_$_CounterData) _then)
+      : super(_value, (v) => _then(v as _$_CounterData));
 
   @override
-  _CounterData get _value => super._value as _CounterData;
+  _$_CounterData get _value => super._value as _$_CounterData;
 
   @override
   $Res call({
     Object? counter = freezed,
   }) {
-    return _then(_CounterData(
+    return _then(_$_CounterData(
       counter: counter == freezed
           ? _value.counter
           : counter // ignore: cast_nullable_to_non_nullable
@@ -100,9 +91,12 @@ class __$CounterDataCopyWithImpl<$Res> extends _$CounterDataCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_CounterData implements _CounterData {
   const _$_CounterData({required this.counter});
+
+  factory _$_CounterData.fromJson(Map<String, dynamic> json) =>
+      _$$_CounterDataFromJson(json);
 
   @override
   final int counter;
@@ -116,27 +110,36 @@ class _$_CounterData implements _CounterData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CounterData &&
+            other is _$_CounterData &&
             const DeepCollectionEquality().equals(other.counter, counter));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(counter));
 
   @JsonKey(ignore: true)
   @override
-  _$CounterDataCopyWith<_CounterData> get copyWith =>
-      __$CounterDataCopyWithImpl<_CounterData>(this, _$identity);
+  _$$_CounterDataCopyWith<_$_CounterData> get copyWith =>
+      __$$_CounterDataCopyWithImpl<_$_CounterData>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_CounterDataToJson(this);
+  }
 }
 
 abstract class _CounterData implements CounterData {
-  const factory _CounterData({required int counter}) = _$_CounterData;
+  const factory _CounterData({required final int counter}) = _$_CounterData;
+
+  factory _CounterData.fromJson(Map<String, dynamic> json) =
+      _$_CounterData.fromJson;
 
   @override
-  int get counter;
+  int get counter => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$CounterDataCopyWith<_CounterData> get copyWith =>
+  _$$_CounterDataCopyWith<_$_CounterData> get copyWith =>
       throw _privateConstructorUsedError;
 }
