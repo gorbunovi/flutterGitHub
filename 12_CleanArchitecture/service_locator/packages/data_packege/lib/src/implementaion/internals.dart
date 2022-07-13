@@ -1,6 +1,5 @@
 
 import 'package:data_packege/src/api/services.dart';
-import 'package:data_packege/src/counter_model.dart';
 import 'package:model_package/src/counter/counter_data.dart';
 
 

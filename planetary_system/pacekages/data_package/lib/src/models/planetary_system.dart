@@ -10,7 +10,7 @@ class PlanetarySystem{
 
   PlanetarySystem(this.planets);
 
-  void addPlanet(Planet planet) => planets;
+  void addPlanet(Planet planet) => planets.add(planet);
 
   factory PlanetarySystem.fromJson(Map<String, dynamic> json) => _$PlanetarySystemFromJson(json);
 
