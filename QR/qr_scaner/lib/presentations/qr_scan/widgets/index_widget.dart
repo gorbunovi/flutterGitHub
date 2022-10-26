@@ -26,8 +26,8 @@ class IndexQrScannerWidget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: TextFormField(
-            autofocus: true,          //если убрать эти 2 строчки
-            focusNode: _keyFocus,     // то все нормально работает
+            autofocus: true, //если убрать эти 2 строчки
+            focusNode: _keyFocus, // то все нормально работает
           ),
         ),
       ),

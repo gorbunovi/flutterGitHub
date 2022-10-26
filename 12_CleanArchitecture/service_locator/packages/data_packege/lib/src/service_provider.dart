@@ -1,6 +1,5 @@
 
 import 'package:data_packege/data_packege.dart';
-import 'package:data_packege/src/api/services.dart';
 import 'package:data_packege/src/implementaion/internals.dart';
 import 'package:get_it/get_it.dart';
 import 'package:model_package/model_package.dart';

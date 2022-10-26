@@ -25,6 +25,12 @@ class _QrScannerWidgetState extends State<QrScannerWidget> {
 
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   void dispose() {
     controller?.pauseCamera();
     controller?.dispose();
@@ -191,6 +197,7 @@ class _QrScannerWidgetState extends State<QrScannerWidget> {
   }
 
   void _onQRViewCreated(QRViewController controller) {
+    controller.resumeCamera();
     setState(() {
       this.controller = controller;
     });

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../controller/qr_scan_controller.dart';
 import '../controller/state.dart';
 import '../widgets/index_widget.dart';
